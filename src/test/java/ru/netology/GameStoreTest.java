@@ -4,6 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GameStoreTest {
     GameStore store = new GameStore();
     Game game1 = store.publishGame("Марио", "Приключения");
@@ -81,4 +84,19 @@ public class GameStoreTest {
     }
 
 
+    @Test
+    public void shouldAddPlayedTimeNegativeException() {
+
+        assertThrows(RuntimeException.class, () -> {
+            store.addPlayTime("Алина", -10);
+        });
+    }
+
+    @Test
+    public void shouldAddPlayedTimeException0() {
+
+        assertThrows(RuntimeException.class, () -> {
+            store.addPlayTime("Алина", 0);
+        });
+    }
 }
