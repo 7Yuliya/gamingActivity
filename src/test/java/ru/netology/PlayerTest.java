@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
 
+
+    //    возвращает суммарное количество часов, проигранное в эту игру
     @Test
     public void shouldSumGenreIfOneGame() {
         GameStore store = new GameStore();
@@ -20,5 +22,4 @@ public class PlayerTest {
         assertEquals(expected, actual);
     }
 
-    // другие ваши тесты
 }
