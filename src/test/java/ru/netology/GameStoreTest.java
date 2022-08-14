@@ -34,10 +34,12 @@ public class GameStoreTest {
         Game game2 = store.publishGame("Принц Персий", "Фэнтези");
         Game game3 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
         Game game4 = store.publishGame("Чип и Дэйл", "Симулятор");
+
         assertTrue(store.containsGame(game1));
         assertTrue(store.containsGame(game2));
         assertTrue(store.containsGame(game3));
         assertTrue(store.containsGame(game4));
+
         assertFalse(store.containsGame(null));
     }
 
