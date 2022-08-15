@@ -42,7 +42,7 @@ public class GameStoreTest {
     }
 
     @Test
-    public void ShouldGetMostPlayer() {
+    public void shouldGetMostPlayer() {
 
         GameStore store = new GameStore();
 
@@ -59,7 +59,7 @@ public class GameStoreTest {
     }
 
     @Test
-    public void ShouldGetMostPlayerNull() {
+    public void shouldGetMostPlayerNull() {
 
         GameStore store = new GameStore();
 
@@ -70,7 +70,22 @@ public class GameStoreTest {
         assertEquals(expected, actual);
 
     }
+    @Test
+    public void shouldGetMostPlayerWithOneFromPlayersHours1() {
 
+        GameStore store = new GameStore();
+
+
+        store.addPlayTime("1", 1);
+        store.addPlayTime("2", 0);
+        store.addPlayTime("3", 0);
+
+        String expected = "1";
+        String actual = store.getMostPlayer();
+
+        assertEquals(expected, actual);
+
+    }
     @Test
     public void shouldGetSumPlayedTime() {
 
