@@ -93,14 +93,6 @@ public class GameStoreTest {
         });
     }
 
-    @Test
-    public void shouldAddPlayedTimeException0() {
-
-        assertThrows(RuntimeException.class, () -> {
-            store.addPlayTime("Алина", 0);
-        });
-    }
-
 
     @Test
     public void shouldAddPlayedTimeOnePlayer() {
