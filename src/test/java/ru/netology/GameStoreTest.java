@@ -97,6 +97,8 @@ public class GameStoreTest {
     }
 
 
+
+
     @Test
     public void shouldAddPlayedTimeOnePlayer() {
         GameStore store = new GameStore();
@@ -114,5 +116,3 @@ public class GameStoreTest {
     }
 
 }
-
-
