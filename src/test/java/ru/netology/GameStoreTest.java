@@ -58,6 +58,7 @@ public class GameStoreTest {
 
     }
 
+
     @Test
     public void shouldGetMostPlayerNull() {
 
@@ -100,7 +101,13 @@ public class GameStoreTest {
         int actual = store.getSumPlayedTime();
         assertEquals(expected, actual);
     }
+    //   @Test
+    //  public void shouldAddPlayedTimeNegativeException() {
 
+    //    assertThrows(RuntimeException.class, () -> {
+    //       store.addPlayTime("Алина", -10);
+    //  });
+    // }
 
     @Test
     public void shouldAddPlayedTimeOnePlayer() {
