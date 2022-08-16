@@ -45,14 +45,14 @@ public class GameStore {
      */
 
     public void addPlayTime(String playerName, int hours) {
-        if (hours > 0) {
-            if (playedTime.containsKey(playerName)) {
-                playedTime.put(playerName, playedTime.get(playerName) + hours);
-            } else {
-                playedTime.put(playerName, hours);
-            }
+//        if (hours > 0) {
+        if (playedTime.containsKey(playerName)) {
+            playedTime.put(playerName, playedTime.get(playerName) + hours);
+        } else {
+            playedTime.put(playerName, hours);
         }
     }
+//    }
 
     /**
      * Ищет имя игрока, который играл в игры этого каталога больше всего
