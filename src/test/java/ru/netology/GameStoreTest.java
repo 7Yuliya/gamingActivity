@@ -70,6 +70,7 @@ public class GameStoreTest {
         assertEquals(expected, actual);
 
     }
+
     @Test
     public void shouldGetMostPlayerWithOneFromPlayersHours1() {
 
@@ -86,6 +87,7 @@ public class GameStoreTest {
         assertEquals(expected, actual);
 
     }
+
     @Test
     public void shouldGetSumPlayedTime() {
 
@@ -97,15 +99,6 @@ public class GameStoreTest {
         int expected = 70;
         int actual = store.getSumPlayedTime();
         assertEquals(expected, actual);
-    }
-
-
-    @Test
-    public void shouldAddPlayedTimeNegativeException() {
-
-        assertThrows(RuntimeException.class, () -> {
-            store.addPlayTime("Алина", -10);
-        });
     }
 
 
