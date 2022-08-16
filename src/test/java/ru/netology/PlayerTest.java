@@ -9,7 +9,6 @@ import java.util.List;
 
 public class PlayerTest {
 
-
     //    возвращает суммарное количество часов, проигранное в эту игру
     @Test
     public void shouldSumGenreIfOneGame() {
@@ -47,6 +46,31 @@ public class PlayerTest {
         int actual = player.sumGenre("genre200");
         assertEquals(expected, actual);
     }
+
+
+    // суммирует время, проигранное во все игры этого жанра этим игроком,
+//    с отрицательным параметром времени
+    @Test
+    public void shouldSumGenreOfSeveralGamesWithoutANegativeTime() {
+        GameStore store = new GameStore();
+        Game game1 = store.publishGame("game100", "genre200");
+        Game game2 = store.publishGame("game101", "genre200");
+        Game game3 = store.publishGame("game102", "genre202");
+
+        Player player = new Player("Petya");
+        player.installGame(game1);
+        player.installGame(game2);
+        player.installGame(game3);
+        player.play(game1, -1);
+        player.play(game2, 3);
+        player.play(game3, 3);
+
+//        должна быть сумма по заданному жанру
+        int expected = 3;
+        int actual = player.sumGenre("genre200");
+        assertEquals(expected, actual);
+    }
+
 
     //    если игра не была установлена, то надо выкидывать RuntimeException
     @Test
@@ -126,30 +150,4 @@ public class PlayerTest {
 }
 
 
-//    @Test
-//    public void shouldShowTheGameWithTheLongesPlayingTimeInOneGenreWhenTheGameTimeIsMatched() {
-//        GameStore store = new GameStore();
-//        Game game1 = store.publishGame("game100", "genre200");
-//        Game game2 = store.publishGame("game101", "genre200");
-//        Game game3 = store.publishGame("game102", "genre202");
-//        Game game4 = store.publishGame("game103", "genre200");
-//
-//        Player player = new Player("Petya");
-//        player.installGame(game1);
-//        player.installGame(game2);
-//        player.installGame(game3);
-//        player.installGame(game4);
-//        player.play(game1, 3);
-//        player.play(game2, 7);
-//        player.play(game3, 1);
-//        player.play(game4, 7);
-//
-////      возвращает несколько игр с одинаковым временем
-////        нужна ли эта проверка
-////        правильно ли написан expected
-//        String expected = "game2, game4";
-//        Game actual = player.mostPlayerByGenre("genre200");
-//        assertEquals(expected, actual);
-//    }
-//}
 
