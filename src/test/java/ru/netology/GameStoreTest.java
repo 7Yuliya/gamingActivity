@@ -4,23 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class GameStoreTest {
-    GameStore store = new GameStore();
-    Game game1 = store.publishGame("Марио", "Приключения");
-    Game game2 = store.publishGame("Принц Персий", "Фэнтези");
-    Game game3 = store.publishGame("Нетология Баттл Онлайн", "Аркады");
-    Game game4 = store.publishGame("Чип и Дэйл", "Симулятор");
-
 
     @Test
     public void shouldAddGame() {
 
         GameStore store = new GameStore();
-
         Game game = store.publishGame("Нетология Баттл Онлайн", "Аркады");
+ gamestore
         assertTrue(store.containsGame(game));
 
     }
@@ -125,3 +116,11 @@ public class GameStoreTest {
         assertEquals(expected, actual);
     }
 }
+
+
+        assertTrue(store.containsGame(game));
+    }
+
+    // другие ваши тесты
+}
+ master

@@ -1,10 +1,9 @@
 
-
 package ru.netology;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ArrayList;
+
 
 public class Player {
     private String name;
@@ -29,7 +28,11 @@ public class Player {
      * если игра уже была, никаких изменений происходить не должно
      */
     public void installGame(Game game) {
-        playedTime.put(game, 0);
+        if (playedTime.containsKey(game)) {
+            playedTime.put(game, playedTime.get(game));
+        } else {
+            playedTime.put(game, 0);
+        }
     }
 
     /**
@@ -42,9 +45,9 @@ public class Player {
     public int play(Game game, int hours) {
         game.getStore().addPlayTime(name, hours);
         if (playedTime.containsKey(game)) {
-            playedTime.put(game, playedTime.get(game));
+            playedTime.put(game, playedTime.get(game) + hours);
         } else {
-            playedTime.put(game, hours);
+            throw new RuntimeException("Игра не была установлена");
         }
         return playedTime.get(game);
     }
@@ -58,8 +61,6 @@ public class Player {
         for (Game game : playedTime.keySet()) {
             if (game.getGenre().equals(genre)) {
                 sum += playedTime.get(game);
-            } else {
-                sum = 0;
             }
         }
         return sum;
@@ -70,7 +71,18 @@ public class Player {
      * Если в игры этого жанра не играли, возвращается null
      */
     public Game mostPlayerByGenre(String genre) {
-        return null;
+        int maxPlayerTime = 0;
+        Game maxGame = null;
+        for (Game game : playedTime.keySet()) {
+            if (game.getGenre().equals(genre)) {
+                int playerTime = playedTime.get(game);
+                if (playerTime > maxPlayerTime) {
+                    maxPlayerTime = playerTime;
+                    maxGame = game;
+                }
+            }
+        }
+        return maxGame;
     }
-
 }
+
