@@ -45,10 +45,7 @@ public class GameStore {
      */
 
     public void addPlayTime(String playerName, int hours) {
-
-//        if (hours > 0) {
-
-
+        //        if (hours > 0) {
         if (playedTime.containsKey(playerName)) {
             playedTime.put(playerName, playedTime.get(playerName) + hours);
         } else {
@@ -79,7 +76,6 @@ public class GameStore {
      * за играми этого каталога
      */
     public int getSumPlayedTime() {
-
         int total = 0;
         for (String playerName : playedTime.keySet()) {
             total += playedTime.get(playerName);
